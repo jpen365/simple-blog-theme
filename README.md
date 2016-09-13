@@ -4,7 +4,9 @@ This is a simple blog theme for WordPress built by converting the [Blog Post](ht
 
 ## Getting Started
 
-To use this theme, download the entire project as a zip file and go to **Plugins > Add New** in your WordPress site admin area to upload the theme.
+To use this theme, download the latest release as a zip file and go to **Plugins > Add New** in your WordPress site admin area to upload the theme.
+
+Note: This theme is still in development. Check [the releases tab](https://github.com/jpen365/simple-blog-theme/releases) for a formal release once this theme is ready for use.
 
 ## Bugs and Issues
 
@@ -15,10 +17,9 @@ Feel free to submit bugs [on GitHub](https://github.com/jpen365/simple-blog-them
 This theme was created by me, Jon Penland, and used as an example of how to convert an HTML5 template into a WordPress theme for a post published at WPMU DEV. Relevant links:
 
 * [@jpen365](https://twitter.com/jpen365): Jon Penland on Twitter.
-* [Article at WPMU DEV]()
+* [Article at WPMU DEV, will update when post is published](#)
 * [Start Bootstrap](http://startbootstrap.com/): Creator of the original HTML5 templates used to create this theme.
-
 
 ## Copyright and License
 
-Copyright 2016, Jon Penland. Code released under the [MIT](https://github.com/jpen365/simple-blog-theme/LICENSE) license.
+Copyright 2016, Jon Penland. Code released under the [MIT](https://github.com/jpen365/simple-blog-theme/blob/master/LICENSE) license.
