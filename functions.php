@@ -21,4 +21,9 @@ function jpen_enqueue_assets() {
 add_action( 'wp_enqueue_scripts' , 'jpen_enqueue_assets' );
 
 
+/* add theme menu areas */
+register_nav_menus (array(
+  'primary' => 'Primary Menu',
+  ));
+
 ?>
