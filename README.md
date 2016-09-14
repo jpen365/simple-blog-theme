@@ -4,9 +4,9 @@ This is a simple blog theme for WordPress built by converting the [Blog Post](ht
 
 ## Getting Started
 
-To use this theme, download the latest release as a zip file and go to **Plugins > Add New** in your WordPress site admin area to upload the theme.
+To use this theme, download the latest [release](https://github.com/jpen365/simple-blog-theme/releases). Go to **Plugins > Add New** in your WordPress site admin area and upload the theme.
 
-Note: This theme is still in development. Check [the releases tab](https://github.com/jpen365/simple-blog-theme/releases) for a formal release once this theme is ready for use.
+**Note**: This theme is still in development. Check [the releases tab](https://github.com/jpen365/simple-blog-theme/releases) for a formal release once this theme is ready for use. In addition, take a look at the [roadmap](https://github.com/jpen365/simple-blog-theme/blob/master/ROADMAP.md) for details about planned additions to this theme.
 
 ## Bugs and Issues
 
