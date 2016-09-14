@@ -8,3 +8,7 @@ Version: 0.1
 License: The MIT License (MIT)
 License URI: https://opensource.org/licenses/MIT
 */
+
+div.entry-content div.container {
+  width: auto;
+}
