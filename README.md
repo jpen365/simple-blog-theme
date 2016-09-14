@@ -10,7 +10,7 @@ To use this theme, download the latest [release](https://github.com/jpen365/simp
 
 ## Bugs and Issues
 
-Feel free to submit bugs [on GitHub](https://github.com/jpen365/simple-blog-theme/issues).
+Feel free to submit bugs [on GitHub](https://github.com/jpen365/simple-blog-theme/issues). However, note that this theme is still in development and bugs may take a backseat to planned features.
 
 ## Creator
 
