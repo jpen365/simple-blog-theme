@@ -21,9 +21,46 @@ function jpen_enqueue_assets() {
 add_action( 'wp_enqueue_scripts' , 'jpen_enqueue_assets' );
 
 
-/* add theme menu areas */
+/* add theme menu area */
 register_nav_menus (array(
   'primary' => 'Primary Menu',
-  ));
+));
+
+
+/* add theme supports */
+add_theme_support( 'post-thumbnails' ); 
+
+
+/* add img-responsive class to all images */
+function jpen_add_responsive_class($content){
+
+  $content = mb_convert_encoding($content, 'HTML-ENTITIES', "UTF-8");
+  $document = new DOMDocument();
+  libxml_use_internal_errors(true);
+  $document->loadHTML(utf8_decode($content));
+
+  $imgs = $document->getElementsByTagName('img');
+  foreach ($imgs as $img) {           
+     $img->setAttribute('class','img-responsive');
+  }
+
+  $html = $document->saveHTML();
+  return $html;   
+}
+add_filter( 'the_content', 'jpen_add_responsive_class');
+
+
+/* register widget areas */
+function jpen_sidebar_widget_area() {
+  register_sidebar( array(
+    'name'          => 'Sidebar Widget Area',
+    'id'            => 'jpen-sidebar-widgets',
+    'before_widget' => '<div class="well">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h4>',
+    'after_title'   => '</h4>',
+    ));
+}
+add_action( 'widgets_init' , 'jpen_sidebar_widget_area' );
 
 ?>
