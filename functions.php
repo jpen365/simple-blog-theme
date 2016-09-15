@@ -138,6 +138,8 @@ add_filter('get_the_excerpt', 'jpen_custom_wp_trim_excerpt');
 
 
 /* Walker class for comments */
+/* Adapted from GitHub Gist by Georgie Luhur */
+/* Original: https://gist.github.com/georgiecel/9445357 */
 class comment_walker extends Walker_Comment {
   var $tree_type = 'comment';
   var $db_fields = array( 'parent' => 'comment_parent', 'id' => 'comment_ID' );
