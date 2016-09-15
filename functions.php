@@ -63,4 +63,77 @@ function jpen_sidebar_widget_area() {
 }
 add_action( 'widgets_init' , 'jpen_sidebar_widget_area' );
 
+
+
+/*return formatted excerpt */
+/* code courtesy of Pieter Goosen at WordPress StackExchange */
+/* http://wordpress.stackexchange.com/questions/141125/allow-html-in-excerpt#answer-141136 */
+function jpen_allowedtags() {
+    // Add custom tags to this string
+        return '<table>,<thead>,<tbody>,<tfoot>,<tr>,<td>,<th>,<h1>,<h2>,<h3>,<script>,<style>,<br>,<em>,<i>,<ul>,<ol>,<li>,<a>,<p>,<img>,<video>,<audio>'; 
+    }
+
+if ( ! function_exists( 'jpen_custom_wp_trim_excerpt' ) ) : 
+
+  function jpen_custom_wp_trim_excerpt($jpen_excerpt) {
+  $raw_excerpt = $jpen_excerpt;
+    if ( '' == $jpen_excerpt ) {
+
+      $jpen_excerpt = get_the_content('');
+      $jpen_excerpt = strip_shortcodes( $jpen_excerpt );
+      $jpen_excerpt = apply_filters('the_content', $jpen_excerpt);
+      $jpen_excerpt = str_replace(']]>', ']]&gt;', $jpen_excerpt);
+      $jpen_excerpt = strip_tags($jpen_excerpt, jpen_allowedtags()); /*IF you need to allow just certain tags. Delete if all tags are allowed */
+
+      //Set the excerpt word count and only break after sentence is complete.
+      $excerpt_word_count = 75;
+      $excerpt_length = apply_filters('excerpt_length', $excerpt_word_count); 
+      $tokens = array();
+      $excerptOutput = '';
+      $count = 0;
+
+      // Divide the string into tokens; HTML tags, or words, followed by any whitespace
+      preg_match_all('/(<[^>]+>|[^<>\s]+)\s*/u', $jpen_excerpt, $tokens);
+
+      foreach ($tokens[0] as $token) { 
+
+        if ($count >= $excerpt_length && preg_match('/[\,\;\?\.\!]\s*$/uS', $token)) { 
+        // Limit reached, continue until , ; ? . or ! occur at the end
+          $excerptOutput .= trim($token);
+          break;
+        }
+
+        // Add words to complete sentence
+        $count++;
+
+        // Append what's left of the token
+        $excerptOutput .= $token;
+      }
+
+      $jpen_excerpt = trim(force_balance_tags($excerptOutput));
+
+      $excerpt_end = ' <a href="'. esc_url( get_permalink() ) . '">' . '&nbsp;&raquo;&nbsp;' . sprintf(__( 'Read more about: %s &nbsp;&raquo;', 'jpen' ), get_the_title()) . '</a>'; 
+      $excerpt_more = apply_filters('excerpt_more', ' ' . $excerpt_end); 
+
+      //$pos = strrpos($jpen_excerpt, '</');
+      //if ($pos !== false)
+      // Inside last HTML tag
+      //$jpen_excerpt = substr_replace($jpen_excerpt, $excerpt_end, $pos, 0); /* Add read more next to last word */
+      //else
+      // After the content
+      $jpen_excerpt .= $excerpt_more; /*Add read more in new paragraph */
+
+    return $jpen_excerpt;   
+
+    }
+  return apply_filters('jpen_custom_wp_trim_excerpt', $jpen_excerpt, $raw_excerpt);
+  } 
+
+endif; 
+
+remove_filter('get_the_excerpt', 'wp_trim_excerpt');
+add_filter('get_the_excerpt', 'jpen_custom_wp_trim_excerpt'); 
+
+
+
 ?>
