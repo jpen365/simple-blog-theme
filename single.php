@@ -8,10 +8,7 @@
     <!-- Blog Entries Column -->
     <div class="col-md-8">
 
-      <?php get_template_part( 'template-parts/content' , 'single' ); ?>
-
-      <!-- load comments -->
-        
+      <?php get_template_part( 'template-parts/content' , 'single' ); ?>      
 
     </div>
 
