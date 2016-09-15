@@ -136,4 +136,73 @@ add_filter('get_the_excerpt', 'jpen_custom_wp_trim_excerpt');
 
 
 
+
+/* Walker class for comments */
+class comment_walker extends Walker_Comment {
+  var $tree_type = 'comment';
+  var $db_fields = array( 'parent' => 'comment_parent', 'id' => 'comment_ID' );
+ 
+  // constructor – wrapper for the comments list
+  function __construct() { ?>
+    <section class="comments-list">
+  <?php }
+
+  // start_lvl – wrapper for child comments list
+  function start_lvl( &$output, $depth = 0, $args = array() ) {
+    $GLOBALS['comment_depth'] = $depth + 2; ?>
+    <div class="media">
+  <?php }
+  
+  // end_lvl – closing wrapper for child comments list
+  function end_lvl( &$output, $depth = 0, $args = array() ) {
+    $GLOBALS['comment_depth'] = $depth + 2; ?>
+    </div>
+  <?php }
+
+  // start_el – HTML for comment template
+  function start_el( &$output, $comment, $depth = 0, $args = array(), $id = 0 ) {
+    $depth++;
+    $GLOBALS['comment_depth'] = $depth;
+    $GLOBALS['comment'] = $comment;
+    $parent_class = ( empty( $args['has_children'] ) ? '' : 'parent' ); 
+  
+    if ( 'article' == $args['style'] ) {
+      $tag = 'article';
+      $add_below = 'comment';
+    } else {
+      $tag = 'article';
+      $add_below = 'comment';
+    } ?>
+
+    <div class="media" <?php comment_class(empty( $args['has_children'] ) ? '' :'parent') ?> id="comment-<?php comment_ID() ?>" itemprop="comment" itemscope itemtype="http://schema.org/Comment">
+      <a class="pull-left comment-author-link" href="<?php comment_author_url(); ?>" itemprop="author">
+        <figure class="media-object gravatar"><?php echo get_avatar( $comment, 65, '[default gravatar URL]', 'Author’s gravatar' ); ?></figure>
+      </a>
+      <div class="media-body comment-meta post-meta" role="complementary">
+        <h4 class="media-heading comment-author">
+          <?php comment_author(); ?>
+          <small><time class="comment-meta-item" datetime="<?php comment_date('Y-m-d') ?>T<?php comment_time('H:iP') ?>" itemprop="datePublished"><?php comment_date('jS F Y') ?> at <a href="#comment-<?php comment_ID() ?>" itemprop="url"><?php comment_time() ?></a></time></small>
+        </h4>
+        <?php if ($comment->comment_approved == '0') : ?>
+        <p class="comment-meta-item">Your comment is awaiting moderation.</p>
+        <?php endif; ?>
+        <?php comment_text() ?>
+        <small><?php edit_comment_link('Edit this comment','You can ',' or '); ?><?php comment_reply_link(array_merge( $args, array('add_below' => $add_below, 'depth' => $depth, 'max_depth' => $args['max_depth']))) ?></small>       
+
+    <?php }
+
+  // end_el – closing HTML for comment template
+  function end_el(&$output, $comment, $depth = 0, $args = array() ) { ?>
+    </div></div>
+  <?php }
+
+  // destructor – closing wrapper for the comments list
+  function __destruct() { ?>
+    </section>
+  <?php }
+
+  }
+
+
+
 ?>
