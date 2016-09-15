@@ -4,7 +4,7 @@ Listed in order or priority:
 
 - ~~Add formatting to excerpt on posts page.~~ Done, 9.14.16
 - ~~Add single.php and content-single.php.~~ Done, 9.14.16
-- Add comments to single blog posts.
+- ~~Add comments to single blog posts.~~ Done, 9.14.16
 - Add page.php and content-page.php.
 - Add archive.php.
 - Add search.php and content-search.php.
