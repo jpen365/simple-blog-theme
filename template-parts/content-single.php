@@ -26,11 +26,8 @@
 
   </article>
 
-  <!--display comments if enabled-->
-  <?php if ( have_comments() or comments_open() ) {
-      /* insert comments section here */    
-    } ?>
-  <!--end comments-->
+  <?php comments_template(); ?>
+
 
 <?php endwhile; else : ?>
   <p><?php _e( 'Sorry, there doesn\'t appear to be anything here.' ); ?></p>
