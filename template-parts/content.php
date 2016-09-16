@@ -1,6 +1,7 @@
 <!-- add page title to pages -->
 <?php if ( is_front_page() && is_home() ) {
   // Default homepage, do nothing, no title
+  ?><h1 class="page-header"><?php bloginfo( 'name' ); ?> <small><?php bloginfo( 'description' ); ?></small></h1><?php
 } elseif ( is_front_page() ) {
   // static homepage, show title if it exists
   the_title( '<h1 class="page-header">', '</h1>' );
