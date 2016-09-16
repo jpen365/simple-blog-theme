@@ -1,4 +1,9 @@
 <?php
+/**
+ * The theme functions file
+ *
+ * @package Simple Blog Theme
+ */
 
 /* enqueue styles and scripts */
 function jpen_enqueue_assets() {

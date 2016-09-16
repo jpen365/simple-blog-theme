@@ -1,4 +1,17 @@
-<?php get_header(); ?>
+<?php 
+/**
+ * The main template file
+ *
+ * This is the most generic template file in a WordPress theme
+ * It is used to display a page when nothing more specific matches a query.
+ * It puts together the home page when no home.php file exists.
+ *
+ * @link http://codex.wordpress.org/Template_Hierarchy
+ *
+ * @package Simple Blog Theme
+ */
+
+ get_header(); ?>
 
   <!-- Page Content -->
   <div class="container">

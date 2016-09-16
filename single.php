@@ -1,4 +1,13 @@
-<?php get_header(); ?>
+<?php
+/**
+ * The single post template
+ *
+ * Displays the content portion of all individual blog posts
+ *
+ * @package Simple Blog Theme
+ */
+  
+get_header(); ?>
 
 <!-- Page Content -->
 <div class="container">

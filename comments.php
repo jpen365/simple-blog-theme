@@ -1,4 +1,10 @@
-<!--display comments if enabled-->
+<?php
+/**
+ * The comments.
+ *
+ * @package Simple Blog Theme
+ */
+?><!--display comments if enabled-->
   <?php if ( have_comments() or comments_open() ) : ?>
 
     <div class="well">

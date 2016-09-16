@@ -1,3 +1,10 @@
+<?php
+/**
+ * The loop for single blog posts
+ *
+ * @package Simple Blog Theme
+ */
+?>
 <!-- The Loop -->
 
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>

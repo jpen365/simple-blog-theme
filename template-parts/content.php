@@ -1,3 +1,11 @@
+<?php
+/**
+ * The loop for index.php and any other pages that don't have a more specific loop
+ *
+ * @package Simple Blog Theme
+ */
+?>
+
 <!-- add page title to pages -->
 <?php if ( is_front_page() && is_home() ) {
   // Default homepage, do nothing, no title
