@@ -112,7 +112,7 @@ if ( ! function_exists( 'jpen_custom_wp_trim_excerpt' ) ) :
 
       $jpen_excerpt = trim(force_balance_tags($excerptOutput));
 
-      $excerpt_end = ' <a href="'. esc_url( get_permalink() ) . '">' . '&nbsp;&raquo;&nbsp;' . sprintf(__( 'Read more about: %s &nbsp;&raquo;', 'jpen' ), get_the_title()) . '</a>'; 
+      //$excerpt_end = ' <a href="'. esc_url( get_permalink() ) . '">' . '&nbsp;&raquo;&nbsp;' . sprintf(__( 'Read more about: %s &nbsp;&raquo;', 'jpen' ), get_the_title()) . '</a>'; 
       $excerpt_more = apply_filters('excerpt_more', ' ' . $excerpt_end); 
 
       //$pos = strrpos($jpen_excerpt, '</');
