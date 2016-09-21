@@ -14,7 +14,7 @@ Feel free to submit bugs [on GitHub](https://github.com/jpen365/simple-blog-them
 
 ## Creator
 
-This theme was created by me, Jon Penland, and used as an example of how to convert an HTML5 template into a WordPress theme for a post published at WPMU DEV. Relevant links:
+This theme was created by [me](http://www.jonpenland.com) and used as an example of how to convert an HTML5 template into a WordPress theme for a post published at WPMU DEV. Relevant links:
 
 * [@jpen365](https://twitter.com/jpen365): Jon Penland on Twitter.
 * [Article at WPMU DEV: How to Convert Any HTML5 Template Into an Awesome WordPress Theme](https://premium.wpmudev.org/blog/convert-html5-template-wordpress-theme/)
